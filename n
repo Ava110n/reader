@@ -1,0 +1,43 @@
+fun main() {
+    var n1 = Reader("Иван", 123)
+    var n2 = Reader("Иван", 123)
+    n1.takeBook("qwe", "rty", "sdf", "fghfgh")
+
+    var a = arrayOf(n1, n2)
+    var b = arrayListOf(n1)
+}
+
+class Reader(_name: String){
+    val name: String = _name
+    var birtday : String = "23.03.2003"
+    var phone : Int = -1
+    constructor(_name: String, _phone: Int):this(_name){
+        phone = _phone
+    }
+    fun takeBook(a: Int){
+        println(name + " взял(а) " + a.toString() + " книг(и)")
+    }
+    fun takeBook(vararg bookName: String){
+        print(name + " взял(а) книги: ")
+        for(i in 0 until bookName.size-1){
+            print(bookName[i]+ ", ")
+        }
+        println(bookName[bookName.size-1]+".")
+    }
+    fun takeBook(vararg b: Book){
+        print(name + " взял(а) книги: ")
+        for(i in 0 until b.size-1){
+            print(b[i].name + ", ")
+        }
+        println(b[b.size-1].name + ".")
+    }
+}
+
+class Book(_name: String){
+    var name = _name
+    var author = "Unknown"
+    constructor(_name: String, _author: String):this(_name){
+        author = _author
+    }
+}
+
